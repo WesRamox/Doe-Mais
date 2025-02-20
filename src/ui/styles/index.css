@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --font-secondary: "Poppins", "serif";
+  --color-red-primary: "#f84f52"; 
+}
+
+.link-hover {
+  @apply hover:text-red-200;
+}
+
+.title {
+  @apply text-6xl font-bold py-2 text-red-primary;
+}
