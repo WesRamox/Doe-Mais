@@ -2,13 +2,21 @@
 
 @theme {
   --font-secondary: "Poppins", "serif";
-  --color-red-primary: "#f84f52"; 
+  --color-primary: #f84f52; 
 }
 
 .link-hover {
-  @apply hover:text-red-200;
+  @apply hover:text-red-200 flex items-center justify-center gap-2;
 }
 
 .title {
-  @apply text-6xl font-bold py-2 text-red-primary;
+  @apply text-7xl font-bold py-2 text-primary;
+}
+
+.sub-title {
+  @apply text-3xl text-gray-800;
+}
+
+.base {
+  @apply max-w-[1600px];
 }

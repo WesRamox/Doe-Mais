@@ -1,7 +1,7 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import CallIcon from '@mui/icons-material/Call';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import { Button } from "@mui/material";
 
 
@@ -11,14 +11,14 @@ import { Button } from "@mui/material";
 const Navbar = () => {
   return (
     <>
-      <header className="flex justify-around items-center w-full bg-red-400 py-5 fixed font-secondary">
+      <header className="flex justify-around items-center w-full bg-red-400 py-5 fixed font-secondary z-50">
         <Link to="/" className="logo">
           <h1 className="text-5xl text-zinc-100 font-semibold">Doe+</h1>
         </Link>
         <nav className="flex gap-10 text-zinc-100">
           <Link to="/" className="link-hover"><HomeIcon /> Inicio</Link>
-          <Link to="/items" className="link-hover"><AutoAwesomeIcon/> Sobre nós</Link>
-          <Link to="/items" className="link-hover"><CallIcon /> Contato</Link>
+          <Link to="/about" className="link-hover"><AutoAwesomeIcon/> Sobre nós</Link>
+          <Link to="/initiative" className="link-hover"><AccessibilityNewIcon /> Iniciativa</Link>
         </nav>
         <div className="buttons flex gap-5">
         <Link to="/sign-in">
