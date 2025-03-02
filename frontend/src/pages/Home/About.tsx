@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/animation.json";
 
-const About = () => {
+export default function About() {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -45,6 +45,5 @@ const About = () => {
         </div>
       </div>
     </>
-  );
+  )
 };
-export default About;

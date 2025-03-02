@@ -37,6 +37,6 @@ createRoot(
     <CssBaseline />
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
+    </BrowserRouter>
   </ThemeProvider>
 );

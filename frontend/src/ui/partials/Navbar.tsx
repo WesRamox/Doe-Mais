@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 // Futura Logo
 // import logo from "../../assets/logo.png";
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <>
       <header className="flex justify-around items-center w-full bg-red-400 py-5 fixed font-secondary z-50">
@@ -21,7 +21,7 @@ const Navbar = () => {
           <Link to="/initiative" className="link-hover"><AccessibilityNewIcon /> Iniciativa</Link>
         </nav>
         <div className="buttons flex gap-5">
-        <Link to="/sign-in">
+        <Link to="/signin">
             <Button
               variant="contained"
               color="primary"
@@ -29,7 +29,7 @@ const Navbar = () => {
               Entrar
             </Button>
           </Link>
-          <Link to="/sign-up">
+          <Link to="/signup">
             <Button
               variant="contained"
               color="secondary"
@@ -40,7 +40,5 @@ const Navbar = () => {
         </div>
       </header>
     </>
-  );
+  )
 };
-
-export default Navbar;

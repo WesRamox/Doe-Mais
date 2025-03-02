@@ -1,6 +1,6 @@
 import bloodImage from "../../assets/blood.svg";
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <div className="flex justify-around items-center bg-red-100 h-screen min-h-[600px]">
@@ -25,6 +25,5 @@ const Home = () => {
         </div>
       </div>
     </>
-  );
-};
-export default Home;
+  )
+}
