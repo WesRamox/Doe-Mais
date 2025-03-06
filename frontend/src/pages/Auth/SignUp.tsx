@@ -6,7 +6,7 @@ import {
   InputLabel,
 } from "@mui/material";
 import { useState } from "react";
-import image from "../../assets/blood.svg";
+import image from "../../assets/team2.svg";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -35,12 +35,12 @@ export default function SignUp() {
 
   return (
     <div className="flex items-center justify-center gap-2 h-screen min-h-[600px] bg-red-100">
-      <div className="left w-2/7 flex items-center justify-center">
+      <div className="left w-1/3 flex items-center justify-center">
         <img src={image} alt="" />
       </div>
-      <div className="right w-2/7 flex flex-col p-8 gap-3 items-center justify-center">
+      <div className="right  w-1/3 flex flex-col p-8 gap-3 items-center justify-center">
         <form
-          className="bg-red-200 flex flex-col gap-5 w-full p-10"
+          className="bg-red-200 flex flex-col gap-5 w-full max-w-[500px] max-h-[600px] p-10"
           onSubmit={handleSubmit}
         >
           <h1 className="text-3xl text-zinc-700">

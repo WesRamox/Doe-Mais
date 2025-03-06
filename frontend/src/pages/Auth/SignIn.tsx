@@ -1,5 +1,5 @@
 import './Auth.css'
-import image from "../../assets/logo.png"
+import image from "../../assets/team.svg"
 import { Button, TextField } from "@mui/material";
 import { useState } from 'react';
 
