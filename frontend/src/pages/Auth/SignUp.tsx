@@ -1,12 +1,20 @@
-import { Button, TextField } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Select,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
 import { useState } from "react";
-import image from "../../assets/blood.svg"
+import image from "../../assets/blood.svg";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    bloodType: ""
   });
 
   const handleChange = (
@@ -42,6 +50,16 @@ export default function SignUp() {
             </span>
           </h1>
           <TextField
+            type="text"
+            name="name"
+            placeholder="Nome"
+            size="small"
+            className="bg-red-300"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+          <TextField
             type="email"
             name="email"
             placeholder="E-mail"
@@ -51,16 +69,51 @@ export default function SignUp() {
             onChange={handleChange}
             required
           />
-          <TextField
-            type="password"
-            name="password"
-            placeholder="Senha"
-            className="bg-red-300"
-            size="small"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password flex items-center gap-3">
+            <TextField
+              type="password"
+              name="password"
+              placeholder="Senha"
+              className="bg-red-300 w-full"
+              size="small"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirme sua senha"
+              className="bg-red-300 w-full"
+              size="small"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <InputLabel id="label-sangue">
+              Tipo sanguineo:
+            </InputLabel>
+            <Select
+              size="small"
+              variant="outlined"
+              className="bg-red-300"
+              labelId="label-sangue"
+              name="bloodType"
+              value={formData.bloodType}
+              onSelect={handleChange}
+            >
+              <MenuItem value="a+">A+</MenuItem>
+              <MenuItem value="a-">A-</MenuItem>
+              <MenuItem value="o+">O+</MenuItem>
+              <MenuItem value="o-">O-</MenuItem>
+              <MenuItem value="b+">B+</MenuItem>
+              <MenuItem value="b-">B-</MenuItem>
+              <MenuItem value="ab+">AB+</MenuItem>
+              <MenuItem value="ab-">AB-</MenuItem>
+            </Select>
+          </div>
           <Button
             type="submit"
             className="submit"
