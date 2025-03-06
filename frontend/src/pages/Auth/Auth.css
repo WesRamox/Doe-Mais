@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.input-login {
+  @apply bg-red-50 rounded-xs p-2 text-xl;
+}
+
+.submit {
+  @apply bg-red-200 px-10 py-2 text-xl cursor-pointer;
+}
