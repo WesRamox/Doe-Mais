@@ -12,11 +12,6 @@ Projeto de extensão voltado para a doação de sangue e cadastro de doadores, c
 - ✅ `POST /auth/login` → Login e geração de token
 - `GET /users/profile` → Obter dados do usuário logado
 
-### **2️⃣ Doadores**
-
-- ✅ `GET /donors` → Listar doadores cadastrados
-- ✅ `POST /donors` → Cadastrar um novo doador
-
 ### **3️⃣ Campanhas de Doação**
 
 - ✅ `GET /campaigns` → Listar campanhas ativas
