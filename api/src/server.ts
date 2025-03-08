@@ -37,8 +37,22 @@ const swaggerOptions = {
         description: "Servidor local"
       }
     ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT"
+        }
+      }
+    },
+    security: [
+      {
+        BearerAuth: []
+      }
+    ]
   },
-  apis: [path.join(__dirname, "routes/*.ts")], // Caminho correto
+  apis: [path.join(__dirname, "routes/*.ts")] // Caminho correto
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
@@ -46,7 +60,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/campaigns", campaignsRoutes);
-app.use("/users", userRoutes); // Prefixo '/users'
+app.use("/api/users", userRoutes); // Prefixo '/users'
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
