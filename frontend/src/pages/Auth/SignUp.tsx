@@ -4,33 +4,58 @@ import {
   Select,
   MenuItem,
   InputLabel,
+  SelectChangeEvent,
 } from "@mui/material";
 import { useState } from "react";
 import image from "../../assets/team2.svg";
+import { registerUser } from "../../services/authService";
+
+interface responseType {
+  message?: string
+}
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    bloodType: ""
+    bloodtype: "",
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e:
+      | React.ChangeEvent<
+          HTMLInputElement | HTMLTextAreaElement
+        >
+      | SelectChangeEvent<string>
   ) => {
+    const { name, value } = e.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
-  const handleSubmit = (
+  const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
-    console.log("Dados do usuário:", formData);
+
+    try {
+      const responseData: responseType = await registerUser(
+        formData
+      );
+
+      alert(responseData.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("Ocorreu um erro desconhecido.");
+      }
+    }
   };
 
   return (
@@ -80,16 +105,6 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
-            <TextField
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirme sua senha"
-              className="bg-red-300 w-full"
-              size="small"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
           </div>
           <div className="flex flex-col gap-2">
             <InputLabel id="label-sangue">
@@ -100,9 +115,9 @@ export default function SignUp() {
               variant="outlined"
               className="bg-red-300"
               labelId="label-sangue"
-              name="bloodType"
-              value={formData.bloodType}
-              onSelect={handleChange}
+              name="bloodtype"
+              value={formData.bloodtype}
+              onChange={handleChange}
             >
               <MenuItem value="a+">A+</MenuItem>
               <MenuItem value="a-">A-</MenuItem>
