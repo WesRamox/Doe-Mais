@@ -41,7 +41,7 @@ Projeto de extensão voltado para a **doação de sangue** e **cadastro de doado
 ### **1️⃣ Autenticação e Usuários**
 - ✅ `POST /auth/register` → **Cadastro de usuário**  
 - ✅ `POST /auth/login` → **Login e geração de token**  
-- 🔄 `GET /users/profile` → **Obter dados do usuário logado**  
+- ✅ `GET /users/profile` → **Obter dados do usuário logado**  
 
 ### **2️⃣ Campanhas de Doação**
 - ✅ `GET /campaigns` → **Listar campanhas ativas**  
