@@ -33,7 +33,7 @@ Projeto de extensão voltado para a **doação de sangue** e **cadastro de doado
 - **Material UI (MUI)**
 - **React Router**
 - **Axios**
-- **Zustand** (para gerenciamento de estado)
+- **ReactQuery** (para gerenciamento de estado)
 
 ---
 
