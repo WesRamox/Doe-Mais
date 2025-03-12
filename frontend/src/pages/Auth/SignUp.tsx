@@ -8,13 +8,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import image from "../../assets/team2.svg";
-import { registerUser } from "../../services/authService";
-
-interface responseType {
-  message?: string
-}
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function SignUp() {
+  const { registerUser } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,25 +35,32 @@ export default function SignUp() {
     });
   };
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-    e.preventDefault();
 
-    try {
-      const responseData: responseType = await registerUser(
-        formData
-      );
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-      alert(responseData.message);
-    } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("Ocorreu um erro desconhecido.");
-      }
+  try {
+    const responseData = await registerUser(
+      formData
+    );
+    alert(responseData.message); // Mostra mensagem de sucesso
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      bloodtype: "",
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      alert(error.message); // Mostra mensagem de erro
+    } else {
+      alert("Ocorreu um erro desconhecido.");
     }
-  };
+  }
+};
+
 
   return (
     <div className="flex items-center justify-center gap-2 h-screen min-h-[600px] bg-red-100">
@@ -118,6 +122,7 @@ export default function SignUp() {
               name="bloodtype"
               value={formData.bloodtype}
               onChange={handleChange}
+              required
             >
               <MenuItem value="a+">A+</MenuItem>
               <MenuItem value="a-">A-</MenuItem>
@@ -134,7 +139,7 @@ export default function SignUp() {
             className="submit"
             variant="contained"
           >
-            Entrar
+            Cadastrar
           </Button>
         </form>
       </div>
